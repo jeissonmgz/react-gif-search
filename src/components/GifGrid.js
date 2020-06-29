@@ -12,7 +12,7 @@ export const GifGrid = ({ category }) => {
       <hr />
 
       {loading && "Loading"}
-      <div className="card-grid">
+      <div className="card-grid animate__animated animate__fadeIn">
         {images.map((img) => (
           <GiftGridItem key={img.id} {...img} />
         ))}
