@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import { GiftGridItem } from "./GiftGridItem";
-// import { getGifts } from "../commons/getGifs";
+import PropTypes from "prop-types";
 
 export const GifGrid = ({ category }) => {
   const { data: images, loading } = useFetchGifs(category);
@@ -11,7 +11,7 @@ export const GifGrid = ({ category }) => {
       <h3>{category}</h3>
       <hr />
 
-      {loading && "Loading"}
+      {loading && <p>Loading</p>}
       <div className="card-grid animate__animated animate__fadeIn">
         {images.map((img) => (
           <GiftGridItem key={img.id} {...img} />
@@ -19,4 +19,8 @@ export const GifGrid = ({ category }) => {
       </div>
     </>
   );
+};
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
 };
